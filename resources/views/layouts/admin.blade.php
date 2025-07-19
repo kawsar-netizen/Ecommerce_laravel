@@ -10,6 +10,14 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/fontawesome-free/css/all.min.css">
   <!-- overlayScrollbars -->
+     <!-- sweethart alert for css -->
+  <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/sweetalert2.css">
+  <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/sweetalert2.min.css">
+  <!-- sweetalert end -->
+  <!-- toastr alert for css -->
+  <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/toastr.css">
+  <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/toastr.min.css">
+  <!-- toastr end -->
   <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('public/backend')}}/dist/css/adminlte.min.css">
@@ -73,5 +81,13 @@
 <script src="{{asset('public/backend')}}/dist/js/demo.js"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('public/backend')}}/dist/js/pages/dashboard2.js"></script>
+<!-- sweetalert for js -->
+ <script src="{{asset('public/backend')}}/plugins/sweetalert2.js"></script>
+ <script src="{{asset('public/backend')}}/plugins/sweetalert2.min.js"></script>
+ <script src="{{asset('public/backend')}}/plugins/sweetalert2.all.min.js"></script>
+ <script src="{{asset('public/backend')}}/plugins/sweetalert2.all.js"></script>
+ <!-- toastr for js -->
+<script src="{{asset('public/backend')}}/plugins/toastr.min.js"></script>
+<script src="{{asset('public/backend')}}/plugins/toastr.js.map"></script>
 </body>
 </html>
