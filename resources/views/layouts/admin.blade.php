@@ -11,12 +11,12 @@
   <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/fontawesome-free/css/all.min.css">
   <!-- overlayScrollbars -->
      <!-- sweethart alert for css -->
-  <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/sweetalert2.css">
-  <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/sweetalert2.min.css">
+  <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/sweetalert2/sweetalert2.css">
+  <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/sweetalert2/sweetalert2.min.css">
   <!-- sweetalert end -->
   <!-- toastr alert for css -->
-  <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/toastr.css">
-  <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/toastr.min.css">
+  <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/toastr/toastr.css">
+  <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/toastr/toastr.min.css">
   <!-- toastr end -->
   <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Theme style -->
@@ -82,12 +82,52 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('public/backend')}}/dist/js/pages/dashboard2.js"></script>
 <!-- sweetalert for js -->
- <script src="{{asset('public/backend')}}/plugins/sweetalert2.js"></script>
- <script src="{{asset('public/backend')}}/plugins/sweetalert2.min.js"></script>
- <script src="{{asset('public/backend')}}/plugins/sweetalert2.all.min.js"></script>
- <script src="{{asset('public/backend')}}/plugins/sweetalert2.all.js"></script>
+ <script src="{{asset('public/backend')}}/plugins/sweetalert2/sweetalert2.js"></script>
+ <script src="{{asset('public/backend')}}/plugins/sweetalert2/sweetalert2.min.js"></script>
+ <script src="{{asset('public/backend')}}/plugins/sweetalert2/sweetalert2.all.min.js"></script>
+ <script src="{{asset('public/backend')}}/plugins/sweetalert2/sweetalert2.all.js"></script>
  <!-- toastr for js -->
-<script src="{{asset('public/backend')}}/plugins/toastr.min.js"></script>
-<script src="{{asset('public/backend')}}/plugins/toastr.js.map"></script>
+<script src="{{asset('public/backend')}}/plugins/toastr/toastr.min.js"></script>
+<script src="{{asset('public/backend')}}/plugins/toastr/toastr.js.map"></script>
+<!-- sweetalet and toastr code after link including -->
+<script>
+  $(document).on("click","#delete",function(e){
+            e.preventDefault();
+            var link = $(this).attr("href");
+            Swal({
+              title:    "Are You Want to delete?",
+              text:     "Once Delete , This will be    Parmanently Delete",
+              icon:     "warning",
+              buttons:   true,
+              dangerMode: true,
+            })
+            .then((willDelete)->{
+              if(willDelete){
+                window.location.href= link;
+              }else{
+                Swal("Safe Data!");
+              }
+            });
+          });
+</script>
+<script>
+  @if(Session::has('message'))
+          var type = "{{Session : get('alert-type','info')}}"
+          switch(type){
+            case 'info':
+              toastr.info("{{Session : get('message')}}");
+              break;
+              case 'success':
+              toastr.success("{{Session : get('message')}}");
+              break;
+              case 'warning':
+              toastr.warning("{{Session : get('message')}}");
+              break;
+              case 'error':
+              toastr.warning("{{Session : get('error')}}");
+              break;
+  }
+  @endif
+</script>
 </body>
 </html>
