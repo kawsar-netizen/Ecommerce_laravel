@@ -91,40 +91,69 @@
 <script src="{{asset('public/backend')}}/plugins/toastr/toastr.js.map"></script>
 <!-- sweetalet and toastr code after link including -->
 <script>
-  $(document).on("click","#delete",function(e){
+        $(document).on("click", "#delete", async function(e) {
             e.preventDefault();
             var link = $(this).attr("href");
-            Swal({
-              title:    "Are You Want to delete?",
-              text:     "Once Delete , This will be    Parmanently Delete",
-              icon:     "warning",
-              buttons:   true,
-              dangerMode: true,
-            })
-            .then((willDelete)->{
-              if(willDelete){
-                window.location.href= link;
-              }else{
-                Swal("Safe Data!");
-              }
+
+            const result = await Swal.fire({
+                title                 : 'Are you sure you want to delete?',
+                text                  : "",
+                icon                  : 'warning',
+                showCancelButton      : true,
+                confirmButtonColor    : '#3085d6',
+                cancelButtonColor     : '#d33',
+                confirmButtonText     : 'Yes, delete',
+                cancelButtonText      : 'Cancel'
             });
-          });
+
+            if (result.isConfirmed) {
+                window.location.href = link;
+            } else {
+                Swal.fire('Cancelled', 'You are still logged in.', 'info');
+            }
+        });
 </script>
+<!-- Before logout showing alert message -->
+
+<script>
+        $(document).on("click", "#logout", async function(e) {
+            e.preventDefault();
+            var link = $(this).attr("href");
+
+            const result = await Swal.fire({
+                title                 : 'Are you sure you want to logout?',
+                text                  : "",
+                icon                  : 'warning',
+                showCancelButton      : true,
+                confirmButtonColor    : '#3085d6',
+                cancelButtonColor     : '#d33',
+                confirmButtonText     : 'Yes, logout',
+                cancelButtonText      : 'Cancel'
+            });
+
+            if (result.isConfirmed) {
+                window.location.href = link;
+            } else {
+                Swal.fire('Cancelled', 'You are still logged in.', 'info');
+            }
+        });
+</script>
+
 <script>
   @if(Session::has('message'))
-          var type = "{{Session : get('alert-type','info')}}"
+          var type = "{{Session :: get('alert-type','info')}}"
           switch(type){
             case 'info':
-              toastr.info("{{Session : get('message')}}");
+              toastr.info("{{Session :: get('message')}}");
               break;
               case 'success':
-              toastr.success("{{Session : get('message')}}");
+              toastr.success("{{Session :: get('message')}}");
               break;
               case 'warning':
-              toastr.warning("{{Session : get('message')}}");
+              toastr.warning("{{Session :: get('message')}}");
               break;
               case 'error':
-              toastr.warning("{{Session : get('error')}}");
+              toastr.warning("{{Session :: get('error')}}");
               break;
   }
   @endif

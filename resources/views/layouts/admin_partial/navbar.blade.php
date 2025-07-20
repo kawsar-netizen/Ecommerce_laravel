@@ -6,7 +6,7 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <!-- <a href="index3.html" class="nav-link">Home</a> -->
-         <a class="dropdown-item" href="{{ route('admin.logout') }}">
+         <a class="dropdown-item" id="logout" href="{{ route('admin.logout') }}">
                                         {{ __('Logout') }}
                                     </a>
       </li>
