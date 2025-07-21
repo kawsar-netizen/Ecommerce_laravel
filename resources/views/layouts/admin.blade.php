@@ -114,7 +114,6 @@
         });
 </script>
 <!-- Before logout showing alert message -->
-
 <script>
         $(document).on("click", "#logout", async function(e) {
             e.preventDefault();
