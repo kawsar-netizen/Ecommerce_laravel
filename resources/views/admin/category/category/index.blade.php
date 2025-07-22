@@ -29,7 +29,7 @@
               </div>
               <!-- /.card-header -->
                 <div class="card-body">
-            <table id="example1" class="table table-bordered table-striped">
+            <table id="example1" class="table table-bordered table-striped table-sm">
                   <thead>
                   <tr>
                     <th>Sl.</th>
@@ -45,8 +45,8 @@
                     <td>{{$row->category_name}}</td>
                     <td>{{$row->category_slug}}</td>
                     <td>
-                      <a href="#" class="btn btn-info btn-sm">e</a>
-                      <a href="#" class="btn btn-danger btn-sm">d</a>
+                      <a href="#" class="btn btn-info btn-sm edit" data-id="{{$row->id}}" data-toggle="modal" data-target="#categoryEditModal"><i class="fas fa-edit"></i></a>
+                      <a href="{{route('category.destory',$row->id)}}" class="btn btn-danger btn-sm" id="delete"><i class="fas fa-trash"></i></a>
                     </td>
                   </tr>
                 @endforeach
@@ -59,26 +59,6 @@
 </div>
 </section>
 </div>
-<!-- Category insert modal -->
- 
-<!-- Modal -->
-<div class="modal fade" id="categoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Add New Category</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Submit</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+@include('admin.category.category.modals')
 @endsection

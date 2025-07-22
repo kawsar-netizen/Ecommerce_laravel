@@ -21,6 +21,10 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'is_admin'
     //category routes
     Route::group(['prefix'=>'category'],function(){
     Route::get('/', 'CategoryController@index')->name('category.index');
+    Route::post('/store', 'CategoryController@store')->name('category.store');
+    Route::get('/edit/{id}', 'CategoryController@edit');
+    Route::post('/update', 'CategoryController@update')->name('category.update');
+    Route::get('/destory/{id}', 'CategoryController@destory')->name('category.destory');
     });
 });
 

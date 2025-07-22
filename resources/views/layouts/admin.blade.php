@@ -137,6 +137,8 @@
 <script src="{{asset('public/backend')}}/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- sweetalet and toastr code after link including -->
 <script>
+      <!-- Before delete showing alert message -->
+
         $(document).on("click", "#delete", async function(e) {
             e.preventDefault();
             var link = $(this).attr("href");
@@ -155,7 +157,7 @@
             if (result.isConfirmed) {
                 window.location.href = link;
             } else {
-                Swal.fire('Cancelled', 'You are still logged in.', 'info');
+                Swal.fire('Cancelled', 'Data still showing.', 'info');
             }
         });
 </script>
