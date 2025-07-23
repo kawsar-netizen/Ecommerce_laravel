@@ -26,6 +26,14 @@ Route::group(['namespace'=>'App\Http\Controllers\Admin','middleware'=>'is_admin'
     Route::post('/update', 'CategoryController@update')->name('category.update');
     Route::get('/destory/{id}', 'CategoryController@destory')->name('category.destory');
     });
+    //Subcategory routes
+    Route::group(['prefix'=>'subcategory'],function(){
+    Route::get('/', 'SubcategoryController@index')->name('subcategory.index');
+    Route::post('/store', 'SubcategoryController@store')->name('subcategory.store');
+    Route::get('/edit/{id}', 'SubcategoryController@edit');
+    Route::post('/update', 'SubcategoryController@update')->name('subcategory.update');
+    Route::get('/destory/{id}', 'SubcategoryController@destory')->name('subcategory.destory');
+    });
 });
 
 

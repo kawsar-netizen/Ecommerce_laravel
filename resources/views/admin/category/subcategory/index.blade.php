@@ -7,11 +7,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Category</h1>
+            <h1 class="m-0">Sub-category</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <button class="btn btn-primary"data-toggle="modal" data-target="#categoryModal">+ Add New</button>
+              <button class="btn btn-primary"data-toggle="modal" data-target="#subcategoryModal">+ Add New</button>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -25,7 +25,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">All categories list here!!</h3>
+                <h3 class="card-title">All Sub Categories list here!!</h3>
               </div>
               <!-- /.card-header -->
                 <div class="card-body">
@@ -33,8 +33,9 @@
                   <thead>
                   <tr>
                     <th>Sl.</th>
+                    <th> Sub Category Name</th>
+                    <th>Sub Category Slug</th>
                     <th>Category Name</th>
-                    <th>Category Slug</th>
                     <th>Action</th>
                   </tr>
                   </thead>
@@ -42,11 +43,12 @@
                 @foreach($data as $key=>$row)
                   <tr>
                     <td>{{$key+1}}</td>
-                    <td>{{$row->category_name}}</td>
-                    <td>{{$row->category_slug}}</td>
+                    <td>{{$row->subcategory_name}}</td>
+                    <td>{{$row->subcat_slug}}</td>
+                    <td>{{$row->category->category_name}}</td>
                     <td>
-                      <a href="#" class="btn btn-info btn-sm edit" data-id="{{$row->id}}" data-toggle="modal" data-target="#categoryEditModal"><i class="fas fa-edit"></i></a>
-                      <a href="{{route('category.destory',$row->id)}}" class="btn btn-danger btn-sm" id="delete"><i class="fas fa-trash"></i></a>
+                      <a href="#" class="btn btn-info btn-sm edit" data-id="{{$row->id}}" data-toggle="modal" data-target="#subcategoryEditModal"><i class="fas fa-edit"></i></a>
+                      <a href="{{route('subcategory.destory',$row->id)}}" class="btn btn-danger btn-sm" id="delete"><i class="fas fa-trash"></i></a>
                     </td>
                   </tr>
                 @endforeach
@@ -59,5 +61,5 @@
 </div>
 </section>
 </div>
-@include('admin.category.category.modals')
+@include('admin.category.subcategory.modals')
 @endsection
